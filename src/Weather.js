@@ -35,6 +35,12 @@ export default function Weather() {
     </form>
   );
 
+  let footer = (
+    <p>
+    <a href="https://github.com/Allafleur/react-weather" target="_blank">Open-sourced code </a>
+    by Alla Sydorenko
+    </p>
+  )
   if (loaded) {
     return (
       <div className="row">
@@ -56,6 +62,7 @@ export default function Weather() {
             <li> Humidity: {weather.humidity} mm </li>
           </ul>
         </div>
+        {footer}
       </div>
     );
   } else {
@@ -68,7 +75,7 @@ export default function Weather() {
         <p> Last updated: Monday, 15:50 </p>
         <p> Clear Sky </p>
         <div className="col-3">
-          <img src="sunny.png" alt="Clear" className="float-left" />
+        <img src={require('./sunny.png') } />
         </div>
         <div className="col-3">
           <h2> 10 °C </h2>
@@ -84,6 +91,7 @@ export default function Weather() {
             </li>
           </ul>
         </div>
+        {footer} 
       </div>
     );
   }
