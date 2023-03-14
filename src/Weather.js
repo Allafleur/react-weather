@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './App.css';
+import "./Weather.css";
+
 
 
 export default function Weather() {
+ 
+
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
@@ -28,66 +31,70 @@ export default function Weather() {
   }
 
   let form = (
+    
+
     <form onSubmit={handlesubmit}>
-      <input type="search" placeholder="Type a city.." onChange={updateCity} />
-      <input type="submit" value="Search" className="btn btn-primary" />
-      <input type="submit" value="Current city" className="btn btn-success" />
+      <input type="search" placeholder="Type a city.." onChange={updateCity} autoFocus="on"  />
+      <input type="submit" value="Search" className="btn btn-primary form" />
+      <input type="submit" value="Current city" className="btn btn-success form" />
     </form>
+    
   );
 
   
   if (loaded) {
     return (
-      <div className="row">
+      <div className= "Weather">
         {form}
-        <br />
         <h1> {city} </h1>
-        <br />
-        <p> Monday, 15:50 </p>
-        <p> {weather.description} </p>
-        <div className="col-3">
-          <img src={weather.icon} alt={weather.description} />{" "}
+        <ul>
+          <li>Monday, 15:50 </li>
+          <li>{weather.description}</li>
+        </ul>
+        <div className="row">
+          <div className="col-6">
+            <img src={weather.icon} alt={weather.description} />{" "}
+            <span className="temperature"> {Math.round(weather.temperature)}</span>
+            <span className="unit">°C</span> 
+          </div>
+          <div className="col-6">
+            <ul>
+              <li> Wind: {weather.wind} km/h</li>
+              <li> Humidity: {weather.humidity} mm </li>
+            </ul>
+          </div>
         </div>
-        <div className="col-3">
-          <h2> {Math.round(weather.temperature)} °C</h2>
-        </div>
-        <div className="col-6">
-          <ul>
-            <li> Wind: {weather.wind} km/h</li>
-            <li> Humidity: {weather.humidity} mm </li>
-          </ul>
-        </div>
-       
       </div>
     );
   } else {
     return (
-      <div className="row">
+      <div className= "Weather">
+      
         {form}
-        <br />
         <h1> Vienna</h1>
-        <br />
-        <p> Last updated: Monday, 15:50 </p>
-        <p> Clear Sky </p>
-        <div className="col-3">
-        <img src={require('./sunny.png') } />
-        </div>
-        <div className="col-3">
-          <h2> 10 °C </h2>
-        </div>
-        <div className="col-6">
-          <ul>
-            <li> </li>
-            <li> Humidity: 49 mm </li>
-            <li> Wind: 5.81 km/h</li>
-            <li>
-              {" "}
-              <img src={weather.icon} alt={weather.description} />{" "}
-            </li>
-          </ul>
-        </div>
-        
+        <ul>
+          <li>Last updated: Monday, 15:50</li>
+          <li>Clear Sky</li>
+        </ul>
+        <div className="row">
+          <div className="col-6">
+          <img src={require('./sunny.png') } alt="sunny" />
+          <span className="temperature">10</span>
+          <span className="unit">°C</span> 
+          </div>
+          <div className="col-6">
+            <ul>
+              <li> Humidity: 49 mm </li>
+              <li> Wind: 5.81 km/h</li>
+              <li>
+                {" "}
+                <img src={weather.icon} alt={weather.description} />{" "}
+              </li>
+            </ul>
+          </div>
+        </div> 
       </div>
     );
   }
+
 }

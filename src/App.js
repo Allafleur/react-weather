@@ -8,7 +8,7 @@ export default function App() {
       <Weather  />
 
       <footer>
-        <a href="https://github.com/Allafleur/react-weather" target="_blank">Open-sourced code </a>
+        <a href="https://github.com/Allafleur/react-weather" target="_blank" rel="noreferrer">Open-sourced code </a>
         by Alla Sydorenko
       </footer>
   
