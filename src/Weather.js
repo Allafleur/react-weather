@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./Weather.css";
-
-
+import FormattedDate from "./FormattedDate";
 
 export default function Weather() {
- 
-
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
+
   function displayWeather(response) {
     setLoaded(true);
     setWeather({
@@ -17,7 +15,9 @@ export default function Weather() {
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
+      date: new Date(response.data.dt*1000), 
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+
     });
   }
 
@@ -31,24 +31,24 @@ export default function Weather() {
   }
 
   let form = (
-    
-
     <form onSubmit={handlesubmit}>
       <input type="search" placeholder="Type a city.." onChange={updateCity} autoFocus="on"  />
       <input type="submit" value="Search" className="btn btn-primary form" />
       <input type="submit" value="Current city" className="btn btn-success form" />
     </form>
-    
-  );
+   );
 
   
   if (loaded) {
-    return (
-      <div className= "Weather">
+    
+    return ( 
+        <div className= "Weather">
         {form}
-        <h1> {city} </h1>
+        <h1 className="text-capitalize"> {city} </h1>
         <ul>
-          <li>Monday, 15:50 </li>
+          <li>
+            <FormattedDate date= {weather.date} />
+          </li>
           <li>{weather.description}</li>
         </ul>
         <div className="row">
@@ -69,7 +69,6 @@ export default function Weather() {
   } else {
     return (
       <div className= "Weather">
-      
         {form}
         <h1> Vienna</h1>
         <ul>
