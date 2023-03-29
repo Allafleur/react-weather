@@ -29,7 +29,8 @@
   }
 
   .Weather li {
-    list-style-type: none;
+    font-size: 16px;
+    list-style: none;
     opacity: 0.9;
   }
   
