@@ -8,8 +8,8 @@ export default function App() {
       <Weather defaultCity="Vienna" />
 
       <footer>
-        <a href="https://github.com/Allafleur/react-weather" target="_blank" rel="noreferrer">Open-sourced code </a>
-        by Alla Sydorenko
+      Open-sourced code on<a href="https://github.com/Allafleur/react-weather" target="_blank" rel="noreferrer">  GitHub </a>
+        and was coded by <a href="https://radiant-marigold-d76534.netlify.app/" target="_blank" rel="noreferrer"> Alla Sydorenko </a>
       </footer>
   
       </div>
