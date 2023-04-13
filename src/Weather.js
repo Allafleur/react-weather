@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import "./Weather.css";
 import WeatherInfo from './WeatherInfo';
+import WeatherForecast from './WeatherForecast';
+
 
 
 export default function Weather(props) {
@@ -12,6 +14,7 @@ export default function Weather(props) {
   function displayWeather(response) {
     setLoaded(true);
     setWeather({
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
@@ -22,24 +25,26 @@ export default function Weather(props) {
     });
   }
 
-  function handlesubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     search();
   }
-  function search(){
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=96ad27349a64ea1dcdfbe6f4d458c085&units=metric`;
-    axios.get(url).then(displayWeather);
-  }
+
   function updateCity(event) {
     setCity(event.target.value);
   }
 
+  function search(){
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a106d60ef865934fed5a96e8563d9489&units=metric`;
+    axios.get(apiUrl).then(displayWeather);
+  }
+  
+
   let form = (
-    <form onSubmit={handlesubmit}>
-      <input type="search" placeholder="Type a city.." onChange={updateCity} autoFocus="on"  />
+    <form onSubmit={handleSubmit}>
+      <input type="search" placeholder="Enter a city.." onChange={updateCity} autoFocus="on"  />
       <input type="submit" value="Search" className="btn btn-primary form" />
-      <input type="submit" value="Current city" className="btn btn-success form" />
-    </form>
+      </form>
    );
 
   
@@ -49,6 +54,7 @@ export default function Weather(props) {
         <div className= "Weather">
         {form}
         <WeatherInfo data={weather} />
+        <WeatherForecast coordinates={weather.coordinates} />
       </div>
     );
   } else {

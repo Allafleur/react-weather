@@ -1,5 +1,6 @@
 import React from "react";
 import ReactAnimatedWeather from 'react-animated-weather';
+import "./WeatherForecast.css";
 
  export default function WeatherIcon(props){
    
@@ -25,12 +26,14 @@ import ReactAnimatedWeather from 'react-animated-weather';
    };
 
     return (
+        <div className="WeatherIcon">
         <ReactAnimatedWeather
             icon= {codeMapping[props.code]}
-            color= "goldenrod"
-            size= {64}
+            color= "#455d7a"
+            size= {props.size}
             animate= {true}
             />
-         
+        </div>
     );
+    
  }
