@@ -7,6 +7,7 @@ import WeatherForecast from './WeatherForecast';
 
 
 export default function Weather(props) {
+
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
@@ -42,9 +43,10 @@ export default function Weather(props) {
 
   let form = (
     <form onSubmit={handleSubmit}>
-      <input type="search" placeholder="Enter a city.." onChange={updateCity} autoFocus="on"  />
-      <input type="submit" value="Search" className="btn btn-primary form" />
-      </form>
+       <input type="search" placeholder="Enter a city.." className="form-search" onChange={updateCity} autoFocus="on"  />
+       <input type="submit" value="Search" className="btn btn-primary form" />
+    </form>
+   
    );
 
   

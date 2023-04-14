@@ -1,12 +1,23 @@
 .WeatherForecast{
     text-align: center;
 }
+
 .WeatherIcon canvas{
     margin-left: 40px;
     margin-right: 5px;
     display: block;
 }
+
 .WeatherForecast-min-temp{
-    opacity: 0.6;
+    opacity: 0.9;
     margin-left: 5px;
+}
+
+.WeatherForecast-max-temp{
+    font-weight: bold;
+}
+
+.WeatherForecast-day{
+    font-style: italic;
+    font-weight: bold;
 }

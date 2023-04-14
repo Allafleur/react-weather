@@ -3,12 +3,18 @@
     border: 1px solid lightgray;
     padding: 16px;
     border-radius: 4px;
+    background-image: url("./img/weather.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
    
-}
+ }
 
-.Weather form{
-    margin-bottom: 20px;
-    margin-left: 10px;
+.Weather .form-search{
+  width: 40%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .Weather .form{
@@ -17,28 +23,31 @@
 
 .Weather h1 {
     font-size: 45px;
-    color: #455d7a;
+    color: #2f4053;
     margin: 15px 0 0 0;
     padding-left: 15px;
-  }
+}
 
   .Weather ul {
     padding: 10px;
     margin: 10px;
-    opacity: 0.8;
-  }
+}
 
   .Weather li {
     font-size: 16px;
     list-style: none;
     opacity: 0.9;
   }
+
+  .Weather .desc{
+    font-style: italic;
+  }
   
   .Weather canvas{
     margin-left: 20px;
     margin-right: 5px;
     display: block;
-     }
+  }
 
   .Weather .temperature{
     font-size: 55px;
