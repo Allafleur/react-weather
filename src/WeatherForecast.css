@@ -2,12 +2,6 @@
     text-align: center;
 }
 
-.WeatherIcon canvas{
-    margin-left: 40px;
-    margin-right: 5px;
-    display: block;
-}
-
 .WeatherForecast-min-temp{
     opacity: 0.9;
     margin-left: 5px;

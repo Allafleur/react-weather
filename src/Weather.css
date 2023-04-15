@@ -44,9 +44,8 @@
   }
   
   .Weather canvas{
-    margin-left: 20px;
-    margin-right: 5px;
-    display: block;
+    margin: 10px auto;;
+    display: inline-block;
   }
 
   .Weather .temperature{
